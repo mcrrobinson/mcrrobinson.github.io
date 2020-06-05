@@ -1,37 +1,114 @@
-<html>
-    <head>    	
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="styles/index.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="js/titleContainer.js"></script>
-        <script src="js/jqueryScroll.js"></script>
-    </head>
-    <body>
-        <div id="particles-js">
-            <ul>
-                <li style="float:right"><a href="#about">About</a></li>
-              </ul>
-            <div class="centered">
-                <div class="white_header" id="titleContainer">
-                    <a href='#' class='underline'>
-                    <p class="inlinestyle">Hi, I'm </p>
-                    <p class="inlinestyle">Matt</p>
-                    <p class="inlinestyle">..<span class="fadingdot">.</span></p>
-                </div>
-            </div>
-            <a href="#two"><img class="centeredArrowRight" src="images/arrows_white.png" alt="arrow" width="80" height="40"></a>
-        </div>
-        <div class="middle_slide" id="two">
-            <a href="#particles-js"><img class="centeredArrowLeft" src="images/arrows_black.png" alt="arrow" width="80" height="40"></a>
-            <a href="#three"><img class="centeredArrowRight" src="images/arrows_black.png" alt="arrow" width="80" height="40"></a>
-        </div>
-        <div class="bottom_slide" id="three">
-            <a href="#two"><img class="centeredArrowLeft" src="images/arrows_white.png" alt="arrow" width="80" height="40"></a>
-        </div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-    </body>
-    <script src="js/particles.min.js"></script>
-    <script src="js/app.js"></script>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Background video - fullPage.js</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+    <meta name="description" content="fullPage full-screen background videos." />
+    <meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,video,full-screen" />
+	<meta name="Resource-type" content="Document" />
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+	<link rel="stylesheet" media="screen" href="css/style.css">
+
+	<script>
+		setTimeout(function() {
+			$("#mainTitle").fadeOut(function() {
+				$(this).text("Matt Robinson ").fadeIn("fast");
+			});
+			$("#secondTitle").delay(2000).fadeIn("2000");
+		}, 2000);
+	</script>
+
+
+</head>
+<body>
+	<div id="fullpage">
+		<div class="section " id="section0">
+			<div id="particles-js"></div>
+			<div class="layer">
+				<h1 id='mainTitle'>Hi, I'm Matt..<span class="fadingdot">.</span> </h1>
+				<h1 class="hidden" id='secondTitle'><a href="#project">Projects</a> | <a href="#language">Languages</a> | <a href="#social">Social</a></h1>
+			</div>
+		</div>
+		<div class="section" id="section1">
+			<!-- projects -->
+			<div class="fixedBottom">
+				<h1 class="projectTitle">GitHub Projects</h1>
+				<div class="flex-container">
+					<div class="boxStyle" style="flex-grow: 1">
+						<div class="marginOutline">mouseshiver
+							<p class="projectText">Shaked the mouse based on the input volume, this is intended for entertainment in coms based videogames.</p>
+						</div>
+					</div>
+					<div class="boxStyle" style="flex-grow: 1">
+						<div class="marginOutline">xor_openvpn_bash
+							<p class="projectText">Deploys a OXR Based OpenVPN server on Linux.</p>
+						</div>
+					</div>
+				</div>
+				<div class="flex-container">
+					<div class="boxStyle" style="flex-grow: 1">
+						<div class="marginOutline">photoorganiser
+							<p class="projectText">Organises photos into folders based on their date of creation.</p>
+						</div>
+					</div>
+					<div class="boxStyle" style="flex-grow: 1">
+						<div class="marginOutline">mcrrobinson.github.io
+							<p class="projectText">The source code to this website as I am not willing to pay for GitHub Pro.</p>
+						</div>
+					</div>
+				</div>
+				<div class="flex-container">
+					<div class="boxStyle" style="flex-grow: 1">
+						<div class="marginOutline">whatmovie
+							<p class="projectText">Old php, AI based website ported over to a NodeJS server.</p>
+						</div>
+					</div>
+					<div class="boxStyle" style="flex-grow: 1">
+						<div class="marginOutline">CSGO_SIMPLE_EXTERNAL
+							<p class="projectText">External code for memory injection with CS:GO, still in development.</p>
+						</div>
+					</div>
+				</div>
+				<div class="flex-container">
+					<div class="boxStyle" style="flex-grow: 1">
+						<div class="marginOutline">ticket-collector
+							<p class="projectText">Ticket automation collection was made for the C3 Conference in Germany.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section" id="section2">
+			<h1>Languages</h1>
+		</div>
+		<div class="section" id="section3">
+			<h1>Social</h1>
+		</div>
+	</div>
+
+	<!-- Scrolling new page javascript -->
+	<script type="text/javascript" src="js/fullpage.js"></script>
+
+	<!-- Particles and Particle Configuration -->
+	<script src="js/particles.min.js"></script>
+	<script src="js/app.js"></script>
+
+
+	<script type="text/javascript">
+		var myFullpage = new fullpage('#fullpage', {
+			css3: true,
+			scrollingSpeed: 300,
+			anchors: ['home', 'project', 'language', 'social'],
+			navigation:true,
+			navigationTooltips: ['Home', 'Projects', 'Languages', 'Social'],
+			showActiveTooltip: true,
+			menu: '#menu'
+		});
+	</script>
+
+</body>
 </html>
