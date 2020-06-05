@@ -3,23 +3,79 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="styles/index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            setTimeout(function() {
+                $('#titleContainer').fadeOut("slow", function(){
+                    var div = $("<div class='white_header headericon' id='titleContainer'><a href='#' class='underline'>Matt Robinson</a></div>").hide();
+                    $(this).replaceWith(div);
+                    $('#titleContainer').fadeIn("fast");
+                });
+            }, 3000); // <-- time in milliseconds
+        </script>
+        <script>
+            $('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function(event) {
+                // On-page links
+                if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+                && 
+                location.hostname == this.hostname
+                ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                    // Only prevent default if animation is actually gonna happen
+                    event.preventDefault();
+                    $('html, body').animate({
+                    scrollTop: target.offset().top
+                    }, 1000, function() {
+                    // Callback after animation
+                    // Must change focus!
+                    var $target = $(target);
+                    $target.focus();
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                        return false;
+                    } else {
+                        $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                        $target.focus(); // Set focus again
+                    };
+                    });
+                }
+                }
+            });
+        </script>
     </head>
     <body>
-        <div id="top_slide">
+        <div id="particles-js">
             <ul>
-                <li style="float:right"><a class="burger" href="#about">About</a></li>
+                <li style="float:right"><a href="#about">About</a></li>
               </ul>
             <div class="centered">
-                <p class="white_header">Hi, I'm Matt..<span class=fadingdot>.</div></p>
+                <div class="white_header" id="titleContainer">
+                    <a href='#' class='underline'>
+                    <p class="inlinestyle">Hi, I'm </p>
+                    <p class="inlinestyle">Matt</p>
+                    <p class="inlinestyle">..<span class="fadingdot">.</span></p>
+                </div>
             </div>
+            <a href="#two"><img class="centeredArrowRight" src="images/arrows_white.png" alt="arrow" width="80" height="40"></a>
         </div>
-        <div id="middle_slide">
-            <div id=slider>Slideee</div>
+        <div class="middle_slide" id="two">
+            <a href="#particles-js"><img class="centeredArrowLeft" src="images/arrows_black.png" alt="arrow" width="80" height="40"></a>
+            <a href="#three"><img class="centeredArrowRight" src="images/arrows_black.png" alt="arrow" width="80" height="40"></a>
         </div>
-        <div class="centered" id="bottom_slide">
-
+        <div class="bottom_slide" id="three">
+            <a href="#two"><img class="centeredArrowLeft" src="images/arrows_white.png" alt="arrow" width="80" height="40"></a>
         </div>
 
     </body>
+    <script src="js/particles.min.js"></script>
+    <script src="js/app.js"></script>
 
 </html>
