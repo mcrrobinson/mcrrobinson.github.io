@@ -387,6 +387,7 @@ a:active:after {
     bottom: 5%;
     left: 5%;
     width: 80%;
+    font-family: arial,helvetica;
 }
 
 .flex-container {
@@ -413,7 +414,7 @@ a:active:after {
 /* THIS WILL BE APPLIED BY LAZY LOADING */
 .boxStyle {
     margin: 10px;
-    transition: 0.5s;
+    transition: 0.2s;
     background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -432,3 +433,83 @@ a:active:after {
     font-size: 15px;
 }
 /* ----------------------------- */
+
+.fixedCenter {
+    position: absolute;
+    left: 5%;
+    width: 80%;
+    font-family: arial,helvetica;
+}
+
+.new-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+  
+.new-container > div {
+    background-color: #3b3681;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+
+.cupOne, .cupTwo, .cupThree, .cupFour {
+    transform: translateY(50%,-50%);
+    width: 200px;
+    height: 200px;
+    border: 6px solid #262626;
+    border-top: 2px solid transparent;
+    border-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: url(../water.png);
+    background-repeat: repeat-x;
+    box-shadow: 0 0 0 6px #fff;
+}
+
+.cupOne {
+    animation: cupOne 10s linear infinite;
+}
+.cupTwo {
+    animation: cupTwo 10s linear infinite;
+}
+.cupThree {
+    animation: cupThree 10s linear infinite;
+}
+.cupFour {
+    animation: cupFour 10s linear infinite;
+}
+@keyframes cupOne {
+    0%{
+        background-position: 0 10px;
+    }
+    100%{
+        background-position: 2000px 10px;
+    }
+}
+@keyframes cupTwo {
+    0%{
+        background-position: 0 50px;
+    }
+    100%{
+        background-position: 2000px 50px;
+    }
+}
+@keyframes cupThree {
+    0%{
+        background-position: 0 100px;
+    }
+    100%{
+        background-position: 2000px 100px;
+    }
+}
+@keyframes cupFour {
+    0%{
+        background-position: 0 150px;
+    }
+    100%{
+        background-position: 2000px 150px;
+    }
+}
