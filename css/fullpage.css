@@ -1,3 +1,8 @@
+/* Default Font for the page. */
+* {
+    font-family: arial,helvetica;
+    color: white;
+}
 html.fp-enabled,
 .fp-enabled body {
     margin: 0;
@@ -7,114 +12,53 @@ html.fp-enabled,
     /*Avoid flicker on slides transitions for mobile phones #336 */
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+
+/* Sets up the sections to split the pages */
 .fp-section {
     position: relative;
-    -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */
-    -moz-box-sizing: border-box; /* <=28 */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.fp-slide {
-    float: left;
-}
-.fp-slide, .fp-slidesContainer {
-    height: 100%;
-    display: block;
-}
-.fp-slides {
-    z-index:1;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    -webkit-transition: all 0.3s ease-out; /* Safari<=6 Android<=4.3 */
-    transition: all 0.3s ease-out;
-}
+
+/* Makes sure not get issues with white lines under sections. */
 .fp-section.fp-table, .fp-slide.fp-table {
     display: table;
     table-layout:fixed;
     width: 100%;
 }
-.fp-slidesContainer {
-    float: left;
-    position: relative;
-}
-.fp-controlArrow {
-    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-    -moz-user-select: none; /* mozilla browsers */
-    -khtml-user-select: none; /* webkit (konqueror) browsers */
-    -ms-user-select: none; /* IE10+ */
-    position: absolute;
-    z-index: 4;
-    top: 50%;
-    cursor: pointer;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    margin-top: -38px;
-    -webkit-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-}
-.fp-controlArrow.fp-prev {
-    left: 15px;
-    width: 0;
-    border-width: 38.5px 34px 38.5px 0;
-    border-color: transparent #fff transparent transparent;
-}
-.fp-controlArrow.fp-next {
-    right: 15px;
-    border-width: 38.5px 0 38.5px 34px;
-    border-color: transparent transparent transparent #fff;
-}
+
 .fp-scrollable {
     overflow: hidden;
     position: relative;
 }
+
 .fp-scroller{
     overflow: hidden;
 }
+
 .iScrollIndicator{
     border: 0 !important;
 }
-.fp-notransition {
-    -webkit-transition: none !important;
-    transition: none !important;
-}
+
+/* ------------------------------------------------------------- */
+/*                              NavTips                          */
+/* ------------------------------------------------------------- */
+
+/*  How far the nav is from the right. */
 #fp-nav {
     position: fixed;
     z-index: 100;
-    margin-top: -32px;
     top: 50%;
-    opacity: 1;
+    opacity: 10.5;
     -webkit-transform: translate3d(0,0,0);
-}
-#fp-nav.fp-right {
-    right: 17px;
-}
-#fp-nav.fp-left {
-    left: 17px;
-}
-.fp-slidesNav{
-    position: absolute;
-    z-index: 4;
-    opacity: 1;
-    -webkit-transform: translate3d(0,0,0);
-    -ms-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-    left: 0 !important;
-    right: 0;
-    margin: 0 auto !important;
-}
 
-/* Fix some UL defaults */
-#fp-nav ul,
-.fp-slidesNav ul {
-  margin: 0;
-  padding: 0;
+    /* Keeps it to the right. */
+    right: 0;
 }
-#fp-nav ul li,
 
 /* Margin from the screen */
-.fp-slidesNav ul li {
+#fp-nav ul li, .fp-slidesNav ul li {
     display: block;
     width: 14px;
     height: 13px;
@@ -122,11 +66,7 @@ html.fp-enabled,
     margin-top: 25px;
     position:relative;
 }
-.fp-slidesNav ul li {
-    display: inline-block;
-}
-#fp-nav ul li a,
-.fp-slidesNav ul li a {
+#fp-nav ul li a, .fp-slidesNav ul li a {
     display: block;
     position: relative;
     z-index: 1;
@@ -135,6 +75,8 @@ html.fp-enabled,
     cursor: pointer;
     text-decoration: none;
 }
+
+/* Acitve button */
 #fp-nav ul li a.active span,
 .fp-slidesNav ul li a.active span,
 #fp-nav ul li:hover a.active span,
@@ -142,17 +84,16 @@ html.fp-enabled,
     height: 20px;
     width: 20px;
     margin: -10px 0 0 -10px;
-    border-radius: 100%;
  }
+ 
 #fp-nav ul li a span,
 .fp-slidesNav ul li a span {
-    border-radius: 50%;
     position: absolute;
     z-index: 1;
-    height: 4px;
-    width: 4px;
-    border: 0;
-    background: rgb(255, 255, 255);
+    height: 8px;
+    width: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
     left: 50%;
     top: 50%;
     margin: -2px 0 0 -2px;
@@ -175,8 +116,8 @@ html.fp-enabled,
     position: absolute;
     top: -5px;
     color: #fff;
+    text-shadow: 2px 2px 5px #000000;
     font-size: 20px;
-    font-family: arial, helvetica, sans-serif;
     white-space: nowrap;
     max-width: 220px;
     overflow: hidden;
@@ -185,10 +126,11 @@ html.fp-enabled,
     width: 0;
     cursor: pointer;
 }
+/* Text stuff. */
 #fp-nav ul li:hover .fp-tooltip,
 #fp-nav.fp-show-active a.active + .fp-tooltip {
     -webkit-transition: opacity 0.2s ease-in;
-    transition: opacity 0.2s ease-in;
+    transition: opacity 0.3s ease-in;
     width: auto;
     opacity: 1;
 }
@@ -197,12 +139,9 @@ html.fp-enabled,
 #fp-nav ul li .fp-tooltip.fp-right {
     right: 30px;
 }
-#fp-nav ul li .fp-tooltip.fp-left {
-    left: 30px;
-}
-
-/*Only display content to screen readers*/
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
+/*              Only display content to screen readers           */
+/* ------------------------------------------------------------- */
 .fp-sr-only{
     position: absolute;
     width: 1px;
@@ -213,28 +152,33 @@ html.fp-enabled,
     white-space: nowrap;
     border: 0;
 }
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
 
 
-/* Centered texts in each section */
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
+/*              Centered texts in each section                   */
+/* ------------------------------------------------------------- */
 .section{
     text-align:left;
 }
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
 
-/* PARTICLES */
+
+/* ------------------------------------------------------------- */
+/*                          PARTICLES                            */
+/* ------------------------------------------------------------- */
 #particles-js{
     height: 100vh;
     width: 100vw;
 }
-  
+/* ------------------------------------------------------------- */
 
-/* Slidey text, that turns into my name */
-/* ----------------------------- */
+  
+/* ------------------------------------------------------------- */
+/*              Slidey text, that turns into my name             */
+/* ------------------------------------------------------------- */
 #section0 .layer #mainTitle{
     font-size: 7vw;
-    font-family: arial,helvetica;
     text-shadow: 5px 5px 8px #000000;
     margin:15px;
     padding:0;
@@ -269,16 +213,15 @@ html.fp-enabled,
         font-size: 30px;
     }
 }
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
 
 
-/* Second Title [Social, Stuff Blah Blah] */
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
+/*              Second Title [Social, Stuff Blah Blah] */
+/* ------------------------------------------------------------- */
 #section0 .layer #secondTitle{
     font-size: 5vw;
-    font-family: arial,helvetica;
     text-shadow: 5px 5px 8px #000000;
-    margin:15px;
     padding:0;
     text-align: center;
     position: absolute;
@@ -290,38 +233,42 @@ html.fp-enabled,
     transform: translate3d(0,0,0);
     white-space: nowrap;
 }
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
 
 
-/* Page Background Colours */
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
+/*                  Page Background Colours                      */
+/* ------------------------------------------------------------- */
 #section0{
     background-image: url(../images/section0.jpg);
-    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     /* Solves overflow issue on Macs */
     overflow: hidden;
 }
 
-#section1{
+#section1.s1background{
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image: url(../images/section1.jpg);
-    color: white;
 }
-
-#section2{
+#section2.s2background{
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image: url(../images/section2.jpg);
-    color: white;
 }
-
-#section3{
+#section3.s3background{
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image: url(../images/section3.jpg);
-    color: white;
 }
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
 
 
-/* Fading in and out dot. */
-/* ------------------------------ */
+/* ------------------------------------------------------------- */
+/*                     DOT FADING IN AND OUT                     */
+/* ------------------------------------------------------------- */
 .fadingdot {
     color: white; 
     -webkit-animation: fadeinout 2s linear forwards infinite;
@@ -337,19 +284,21 @@ html.fp-enabled,
     0%,100% { opacity: 0; }
     50% { opacity: 1; }
 }
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
 
 
-/* To hide the text that appears later. */
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
+/*              To hide the text that appears later.             */
+/* ------------------------------------------------------------- */
 .hidden {
     display: none;
 }
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
 
 
-/* Sliding underline. */
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
+/*                     Sliding Underline                         */
+/* ------------------------------------------------------------- */
 a {
     color: white;
     text-decoration: none;
@@ -375,17 +324,17 @@ a:focus:after,
 a:active:after {
     right: 0;
 }
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
 
 
-/* PROJECTS */
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
+/*                            PROJECTS                           */
+/* ------------------------------------------------------------- */
 .fixedBottom {
     position: absolute;
     bottom: 5%;
     left: 5%;
     width: 80%;
-    font-family: arial,helvetica;
 }
 
 .flex-container {
@@ -422,7 +371,6 @@ a:active:after {
 
 .projectTitle {
     font-size: 40px;
-    font-family: arial,helvetica;
     text-shadow: 5px 5px 8px #000000;
 }
 
@@ -430,7 +378,7 @@ a:active:after {
     margin-left: 10px;
     font-size: 15px;
 }
-/* ----------------------------- */
+/* ------------------------------------------------------------- */
 
 
 /* ------------------------------------------------------------- */
@@ -482,7 +430,7 @@ a:active:after {
     height: 18vw;
     border: 6px solid #262626;
     border-radius: 30px;
-    background: url(../water2.jpg);
+    background: url(../images/water2.jpg);
     background-color: #626f8f;
     background-repeat: repeat-x;
     box-shadow: 0 0 0 6px #fff;
@@ -495,8 +443,8 @@ a:active:after {
 .cupThree { animation: cupThree 1s linear infinite }
 .cupFour { animation: cupFour 1s linear infinite }
 @keyframes cupOne {
-    0%{ background-position: 0 5px; }
-    100%{ background-position: 350px 5px; }
+    0%{ background-position: 0 0px; }
+    100%{ background-position: 350px 0px; }
 }
 @keyframes cupTwo {
     0%{ background-position: 0 50px; }
@@ -507,14 +455,16 @@ a:active:after {
     100%{ background-position: 350px 100px; }
 }
 @keyframes cupFour {
-    0%{ background-position: 0 300px; }
-    100%{ background-position: 350px 300px; }
+    0%{ background-position: 0 200px; }
+    100%{ background-position: 350px 200px; }
 }
 
 /* Used to make them responsive, if the screen size is less */
 /* than specified it will change the following variables in */
 /* the following classes. */
 @media only screen and (max-width: 1200px) {
+    /* Make the secondtitle taller so as to avoid the navtips */
+    #section0 .layer #secondTitle{ top: 30%; }
     .fixedCenter { width: 100%; }
     .languageName { font-size: 6.5vw; }
     .languagePercent { font-size: 9vw; }
@@ -532,6 +482,12 @@ a:active:after {
 /* than specified it will change the following variables in */
 /* the following classes. */
 @media only screen and (max-width: 700px) {
+
+    /* Make the secondtitle taller so as to avoid the navtips */
+    #section0 .layer #secondTitle{ 
+        top: 30%;
+        font-size: 6.8vw;
+    }
     .languageTitle {
         left:10px;
         top: 30px;
