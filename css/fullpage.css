@@ -450,6 +450,11 @@ a:active:after {
     background-position: 0 300px;
 }
 
+
+/* ------------------------------------------------------------- */
+/*                      Responsive Section                       */
+/* ------------------------------------------------------------- */
+
 /* Used to make them responsive, if the screen size is less */
 /* than specified it will change the following variables in */
 /* the following classes. */
@@ -485,3 +490,4 @@ a:active:after {
     }
     .fCups1, .fCups2 { display: block; }
 }
+/* ------------------------------------------------------------- */
