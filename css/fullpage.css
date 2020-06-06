@@ -223,6 +223,12 @@ html.fp-enabled,
 }
 /* ----------------------------- */
 
+/* PARTICLES */
+#particles-js{
+    height: 100vh;
+    width: 100vw;
+}
+  
 
 /* Slidey text, that turns into my name */
 /* ----------------------------- */
@@ -290,9 +296,7 @@ html.fp-enabled,
 /* Page Background Colours */
 /* ----------------------------- */
 #section0{
-    background: -webkit-gradient(linear, top left, bottom left, from(#3a3a3a), to(#161616));
-    background: -webkit-linear-gradient(#3a3a3a, #161616);
-    background: linear-gradient(#3a3a3a,#161616);
+    background-image: url(../images/section0.jpg);
     color: white;
 
     /* Solves overflow issue on Macs */
@@ -300,23 +304,17 @@ html.fp-enabled,
 }
 
 #section1{
-    background: -webkit-gradient(linear, top left, bottom left, from(#161616), to(#4BBFC3));
-    background: -webkit-linear-gradient(#161616, #4BBFC3);
-    background: linear-gradient(#161616,#4BBFC3);
+    background-image: url(../images/section1.jpg);
     color: white;
 }
 
 #section2{
-    background: -webkit-gradient(linear, top left, bottom left, from(#7baabe), to(#636f8f));
-    background: -webkit-linear-gradient(#4BBFC3, #636F8F);
-    background: linear-gradient(#4BBFC3,#636F8F);
+    background-image: url(../images/section2.jpg);
     color: white;
 }
 
 #section3{
-    background: -webkit-gradient(linear, top left, bottom left, from(#636f8f), to(#7baabe));
-    background: -webkit-linear-gradient(#636F8F, #7BAABE);
-    background: linear-gradient(#636F8F,#7BAABE);
+    background-image: url(../images/section3.jpg);
     color: white;
 }
 /* ----------------------------- */
@@ -434,82 +432,119 @@ a:active:after {
 }
 /* ----------------------------- */
 
+
+/* ------------------------------------------------------------- */
+/*                     SECTION2, LANGUAGES                       */
+/* ------------------------------------------------------------- */
+
+/* Tile on the language based page. */
+.languageTitle {
+    font-size: 40px;
+    text-shadow: 5px 5px 8px #000000;
+    margin: 0;
+    position:relative;
+    left: 30px;
+    top: 30px;
+}
+
+/* The container that attempts to not let the boxes interfere with */
+/* the navigation on the right. */
 .fixedCenter {
-    position: absolute;
-    left: 5%;
-    width: 80%;
-    font-family: arial,helvetica;
+    width: 90%;
+    height: 100%;
 }
 
-.new-container {
+/* Make sure the blocks are aligned next to each other when res. */
+/* is large enough */
+.fCups1 { display: flex; }
+.fCups2 { display: flex; }
+
+/* .fixedCenter fixes the block of boxes to the center of the screen */
+/* .languageName centers the name language. */
+/* .languagePercent centers the percent of the language. */
+.fixedCenter, .languageName, .languagePercent {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-  
-.new-container > div {
-    background-color: #3b3681;
-    margin: 10px;
-    text-align: center;
-    line-height: 75px;
-    font-size: 30px;
+    align-items: center;
+    justify-content: center; 
 }
 
+/*  Displays the title and the Percentage regards to language knowledge */
+.languageName, .languagePercent { text-align: center; }
+.languageName { font-size: 4vw; }
+.languagePercent { font-size: 5vw; }
+
+/* Draws the boxes as well as renders the water as the background. */
 .cupOne, .cupTwo, .cupThree, .cupFour {
-    transform: translateY(50%,-50%);
-    width: 200px;
-    height: 200px;
+    margin: 15px;
+    margin-bottom: 18vh;
+    margin-top: 15vh;
+    width: 18vw;
+    height: 18vw;
     border: 6px solid #262626;
-    border-top: 2px solid transparent;
-    border-radius: 15px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background: url(../water.png);
+    border-radius: 30px;
+    background: url(../water2.jpg);
+    background-color: #626f8f;
     background-repeat: repeat-x;
     box-shadow: 0 0 0 6px #fff;
 }
 
-.cupOne {
-    animation: cupOne 10s linear infinite;
-}
-.cupTwo {
-    animation: cupTwo 10s linear infinite;
-}
-.cupThree {
-    animation: cupThree 10s linear infinite;
-}
-.cupFour {
-    animation: cupFour 10s linear infinite;
-}
+/* Loops the water to shift right as if it was flowing, the amount of */
+/* the language is determined opposite by the height in px */
+.cupOne { animation: cupOne 1s linear infinite }
+.cupTwo { animation: cupTwo 1s linear infinite }
+.cupThree { animation: cupThree 1s linear infinite }
+.cupFour { animation: cupFour 1s linear infinite }
 @keyframes cupOne {
-    0%{
-        background-position: 0 10px;
-    }
-    100%{
-        background-position: 2000px 10px;
-    }
+    0%{ background-position: 0 5px; }
+    100%{ background-position: 350px 5px; }
 }
 @keyframes cupTwo {
-    0%{
-        background-position: 0 50px;
-    }
-    100%{
-        background-position: 2000px 50px;
-    }
+    0%{ background-position: 0 50px; }
+    100%{ background-position: 350px 50px; }
 }
 @keyframes cupThree {
-    0%{
-        background-position: 0 100px;
-    }
-    100%{
-        background-position: 2000px 100px;
-    }
+    0%{ background-position: 0 100px; }
+    100%{ background-position: 350px 100px; }
 }
 @keyframes cupFour {
-    0%{
-        background-position: 0 150px;
+    0%{ background-position: 0 300px; }
+    100%{ background-position: 350px 300px; }
+}
+
+/* Used to make them responsive, if the screen size is less */
+/* than specified it will change the following variables in */
+/* the following classes. */
+@media only screen and (max-width: 1200px) {
+    .fixedCenter { width: 100%; }
+    .languageName { font-size: 6.5vw; }
+    .languagePercent { font-size: 9vw; }
+    .cupOne, .cupTwo, .cupThree, .cupFour {
+        margin: 15px;
+        margin-bottom: 18vh;
+        margin-top: 15vh;
+        width: 30vw;
+        height: 30vw;
     }
-    100%{
-        background-position: 2000px 150px;
+    .fCups1, .fCups2 { display: block; }
+}
+
+/* Used to make them responsive, if the screen size is less */
+/* than specified it will change the following variables in */
+/* the following classes. */
+@media only screen and (max-width: 700px) {
+    .languageTitle {
+        left:10px;
+        top: 30px;
     }
+    .fixedCenter { width: 100%; }
+    .languageName { font-size: 9vw; }
+    .languagePercent { font-size: 12vw; }
+    .cupOne, .cupTwo, .cupThree, .cupFour {
+        margin: 15px;
+        margin-bottom: 18vh;
+        margin-top: 15vh;
+        width: 42vw;
+        height: 42vw;
+    }
+    .fCups1, .fCups2 { display: block; }
 }

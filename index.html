@@ -12,8 +12,8 @@
 	<meta name="Resource-type" content="Document" />
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
-	<link rel="stylesheet" media="screen" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/fullpage.css" />
+	<link rel="stylesheet" media="screen" href="/css/particles.css">
 
 	<script>
 		setTimeout(function() {
@@ -99,13 +99,27 @@
 			</div>
 		</div>
 		<div class="section" id="section2">
-			<h1 style="margin: 0;">Languages</h1>
+			<h1 class="languageTitle">Languages</h1>
 			<div class="fixedCenter">
-				<div class="new-container">
-					<div class="cupOne"><h1>Python</h1></div>
-					<div class="cupTwo"><h1>C++</h1></div>
-					<div class="cupThree"><h1>Java</h1></div>
-					<div class="cupFour"><h1>Rust</h1></div> 
+				<div class="fCups1">
+					<div class="cupOne">
+						<h1 class="languageName">Python</h1>
+						<h1 class="languagePercent">90%</h1>
+					</div>
+					<div class="cupTwo">
+						<h1 class="languageName">C++</h1>
+						<h1 class="languagePercent">65%</h1>
+					</div>
+				</div>
+				<div class="fCups2">
+					<div class="cupThree">
+						<h1 class="languageName">Java</h1>
+						<h1 class="languagePercent">60%</h1>
+					</div>
+					<div class="cupFour">
+						<h1 class="languageName">Rust</h1>
+						<h1 class="languagePercent">10%</h1>
+					</div> 
 				</div>
 			</div>
 		</div>
@@ -131,7 +145,6 @@
 			navigationTooltips: ['Home', 'Projects', 'Languages', 'Social'],
 			showActiveTooltip: true,
 			menu: '#menu',
-			scrollOverflow: true
 		});
 	</script>
 
