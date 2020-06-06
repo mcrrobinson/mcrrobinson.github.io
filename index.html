@@ -94,7 +94,7 @@
 					</div>
 					<div class="cupTwo">
 						<h1 class="languageName">C++</h1>
-						<h1 class="languagePercent">65%</h1>
+						<h1 class="languagePercent">85%</h1>
 					</div>
 				</div>
 				<div class="fCups2">
@@ -111,6 +111,7 @@
 		</div>
 		<div class="section" id="section3">
 			<h1>Social</h1>
+			<p>Regarding the page about language I am familiar with, I am not taking into consideration Web Development languages, only backend langauges. I am also very familiar with HTML, CSS, Javascript etc. I made the page.</p>
 		</div>
 	</div>
 
@@ -139,12 +140,15 @@
 			onLeave: function(origin, destination, direction){
 
 				// Only animate the particles if on the home screen.
+				// Not sure if this is helping so far, TODO testing
+				// later.
 				if(destination.index === 0){
 					pJSDom[0].pJS.particles.move.enable = true;
 					pJSDom[0].pJS.fn.particlesRefresh();
 				}
 
 				// Lazyload backgrounds on load and set particles off.
+				// Test this later too, against latency.
 				if(destination.index === 1){
 					destination.item.classList.add('s1background');
 					pJSDom[0].pJS.particles.move.enable = false;

@@ -430,34 +430,24 @@ a:active:after {
     height: 18vw;
     border: 6px solid #262626;
     border-radius: 30px;
-    background: url(../images/water2.jpg);
-    background-size: unset;
+    background-image: url("../images/water.gif");
     background-color: #626f8f;
-    background-repeat: repeat-x;
+    background-repeat: no-repeat;
+    background-size: cover;
     box-shadow: 0 0 0 6px #fff;
 }
 
-/* Loops the water to shift right as if it was flowing, the amount of */
-/* the language is determined opposite by the height in px */
-.cupOne { animation: cupOne 1s linear infinite }
-.cupTwo { animation: cupTwo 1s linear infinite }
-.cupThree { animation: cupThree 1s linear infinite }
-.cupFour { animation: cupFour 1s linear infinite }
-@keyframes cupOne {
-    0%{ background-position: 0 10px; }
-    100%{ background-position: 350px 10px; }
+.cupOne {
+    background-position: 0 0;
 }
-@keyframes cupTwo {
-    0%{ background-position: 0 50px; }
-    100%{ background-position: 350px 50px; }
+.cupTwo {
+    background-position: 0 50px;
 }
-@keyframes cupThree {
-    0%{ background-position: 0 100px; }
-    100%{ background-position: 350px 100px; }
+.cupThree {
+    background-position: 0 120px;
 }
-@keyframes cupFour {
-    0%{ background-position: 0 200px; }
-    100%{ background-position: 350px 200px; }
+.cupFour {
+    background-position: 0 300px;
 }
 
 /* Used to make them responsive, if the screen size is less */
