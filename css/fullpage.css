@@ -430,11 +430,14 @@ a:active:after {
     height: 18vw;
     border: 6px solid #262626;
     border-radius: 30px;
-    background-image: url("../images/water.gif");
     background-color: #626f8f;
+    box-shadow: 0 0 0 6px #fff;
+}
+
+.cupBackground {
+    background-image: url("../images/water.gif");
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: 0 0 0 6px #fff;
 }
 
 .cupOne {

@@ -22,7 +22,7 @@
 				<h1 class="hidden" id='secondTitle'><a href="#project">Projects</a> | <a href="#language">Languages</a> | <a href="#social">Social</a></h1>
 			</div>
 		</div>
-		<div class="section" id="section1">
+		<div class="section s1background" id="section1">
 			<div class="fixedBottom">
 				<h1 class="projectTitle">GitHub Projects</h1>
 				<div class="flex-container">
@@ -84,32 +84,32 @@
 				</div>
 			</div>
 		</div>
-		<div class="section" id="section2">
+		<div class="section s2background" id="section2">
 			<h1 class="languageTitle">Languages</h1>
 			<div class="fixedCenter">
 				<div class="fCups1">
-					<div class="cupOne">
+					<div id="cupOne" class="cupOne">
 						<h1 class="languageName">Python</h1>
 						<h1 class="languagePercent">90%</h1>
 					</div>
-					<div class="cupTwo">
+					<div id="cupTwo" class="cupTwo">
 						<h1 class="languageName">C++</h1>
 						<h1 class="languagePercent">85%</h1>
 					</div>
 				</div>
 				<div class="fCups2">
-					<div class="cupThree">
+					<div id="cupThree" class="cupThree">
 						<h1 class="languageName">Java</h1>
 						<h1 class="languagePercent">60%</h1>
 					</div>
-					<div class="cupFour">
+					<div id="cupFour" class="cupFour">
 						<h1 class="languageName">Rust</h1>
 						<h1 class="languagePercent">10%</h1>
 					</div> 
 				</div>
 			</div>
 		</div>
-		<div class="section" id="section3">
+		<div class="section s3background" id="section3">
 			<h1>Social</h1>
 			<p>Regarding the page about language I am familiar with, I am not taking into consideration Web Development languages, only backend langauges. I am also very familiar with HTML, CSS, Javascript etc. I made the page.</p>
 		</div>
@@ -139,26 +139,32 @@
 			menu: '#menu',
 			onLeave: function(origin, destination, direction){
 
-				// Only animate the particles if on the home screen.
-				// Not sure if this is helping so far, TODO testing
-				// later.
+				// Only animate particles once highlighted by the user.
 				if(destination.index === 0){
 					pJSDom[0].pJS.particles.move.enable = true;
 					pJSDom[0].pJS.fn.particlesRefresh();
 				}
 
-				// Lazyload backgrounds on load and set particles off.
-				// Test this later too, against latency.
+				// Remove particles.
 				if(destination.index === 1){
-					destination.item.classList.add('s1background');
 					pJSDom[0].pJS.particles.move.enable = false;
 				}
+
+				// Lazyload cup background & stop particles.
 				if(destination.index === 2){
-					destination.item.classList.add('s2background');
+					var cOne = document.getElementById('cupOne');
+					var cTwo = document.getElementById('cupTwo');
+					var cThree = document.getElementById('cupThree');
+					var cFour = document.getElementById('cupFour');
+					cOne.classList.add('cupBackground');
+					cTwo.classList.add('cupBackground');
+					cThree.classList.add('cupBackground');
+					cFour.classList.add('cupBackground');
 					pJSDom[0].pJS.particles.move.enable = false;
 				}
+
+				// Stop particles.
 				if(destination.index === 3){
-					destination.item.classList.add('s3background');
 					pJSDom[0].pJS.particles.move.enable = false;
 				}
 			}
