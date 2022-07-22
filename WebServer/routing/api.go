@@ -29,6 +29,14 @@ func (route *Router) CreateWebServer() {
 	}
 }
 
+func (route *Router) Middleware()  {
+	route.logger.Info("Middleware")
+	go http.ListenAndServe(":80", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		route.logger.Info("Redirecting to HTTPS")
+		http.Redirect(w, r, "https://"+route.webIP, http.StatusMovedPermanently)
+	}))
+}
+
 // ListenWebServer starts the API server on a new thread as ListenAndServe blocks.
 func (route *Router) ListenWebServer(stop chan bool) {
 	route.logger.Info(

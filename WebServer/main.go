@@ -15,11 +15,15 @@ func main() {
 	certificate := flag.String("cert", "certs/certificate.crt", "Location of the certificate.")
 	key := flag.String("key", "certs/private.key", "Location of th key.")
 
+	
 	// Make a bool to tell the thread when to stop.
 	stop := make(chan bool)
 
 	// Declare the new structure.
 	c := routing.NewRouterStructure(*projectTitle, *webPort, *webIP, *certificate, *key)
+
+	// Create middleware to stop using http.
+	c.Middleware()
 
 	// Create the API server, declare endpoints etc.
 	c.CreateWebServer()
