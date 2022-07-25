@@ -18,7 +18,7 @@ func (route *Router) CreateWebServer() {
 	r.HandleFunc("/about", route.AboutPage).Methods("GET")
 	r.HandleFunc("/social", route.SocialPage).Methods("GET")
 	r.HandleFunc("/projects", route.ProjectPage).Methods("GET")
-	r.HandleFunc("/404", route.MaintenancePage).Methods("GET")
+	r.NotFoundHandler = http.HandlerFunc(route.MaintenancePage)
 
 	route.apiServer = &http.Server{
 		Addr:    fmt.Sprintf(":%d", route.webPort),
