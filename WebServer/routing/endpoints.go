@@ -66,15 +66,13 @@ func (route *Router) AboutPage(w http.ResponseWriter, r *http.Request) {
 
 // TablesPage contains the template event page.
 func (route *Router) ProjectsPage(w http.ResponseWriter, r *http.Request) {
-	type MetaProject struct{}
-
 	templates, err := template.ParseFiles(
-		"templates/project.html",
+		"templates/social.html",
 	)
 	if err != nil {
 		route.logger.Error("Unable to parse 'Projects' page.", "err", err)
 	}
-	templates.ExecuteTemplate(w, "project.html", MetaProject{})
+	templates.ExecuteTemplate(w, "social.html", nil)
 	route.logger.Debug("A 'Projects' page request was made.")
 }
 
@@ -88,4 +86,28 @@ func (route *Router) SocialPage(w http.ResponseWriter, r *http.Request) {
 	}
 	templates.ExecuteTemplate(w, "social.html", nil)
 	route.logger.Debug("A 'Social' page request was made.")
+}
+
+// TypographyPage contains the template event page.
+func (route *Router) ProjectPage(w http.ResponseWriter, r *http.Request) {
+	templates, err := template.ParseFiles(
+		"templates/projects.html",
+	)
+	if err != nil {
+		route.logger.Error("Unable to parse 'Projects' page.", "err", err)
+	}
+	templates.ExecuteTemplate(w, "projects.html", nil)
+	route.logger.Debug("A 'Projects' page request was made.")
+}
+
+// TypographyPage contains the template event page.
+func (route *Router) MaintenancePage(w http.ResponseWriter, r *http.Request) {
+	templates, err := template.ParseFiles(
+		"templates/maintenance.html",
+	)
+	if err != nil {
+		route.logger.Error("Unable to parse 'Maintenance' page.", "err", err)
+	}
+	templates.ExecuteTemplate(w, "maintenance.html", nil)
+	route.logger.Debug("A 'Maintenance' page request was made.")
 }

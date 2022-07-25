@@ -13,10 +13,12 @@ import (
 // CreateWebServer creates the mux instance and sets the endpoints.
 func (route *Router) CreateWebServer() {
 	r := mux.NewRouter()
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static/"))))
 	r.HandleFunc("/", route.HomePage).Methods("GET")
 	r.HandleFunc("/about", route.AboutPage).Methods("GET")
-	r.HandleFunc("/project", route.ProjectsPage).Methods("GET")
 	r.HandleFunc("/social", route.SocialPage).Methods("GET")
+	r.HandleFunc("/projects", route.ProjectPage).Methods("GET")
+	r.HandleFunc("/404", route.MaintenancePage).Methods("GET")
 
 	route.apiServer = &http.Server{
 		Addr:    fmt.Sprintf(":%d", route.webPort),
