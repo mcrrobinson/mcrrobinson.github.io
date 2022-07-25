@@ -80,8 +80,6 @@ func (route *Router) ProjectsPage(w http.ResponseWriter, r *http.Request) {
 
 // TypographyPage contains the template event page.
 func (route *Router) SocialPage(w http.ResponseWriter, r *http.Request) {
-	type MetaTypo struct {
-	}
 	templates, err := template.ParseFiles(
 		"templates/social.html",
 	)
