@@ -9,6 +9,5 @@ RUN go build -o /go/bin/server
 FROM alpine:3.10 
 COPY --from=GO_BUILD /go/bin/server/ ./
 COPY --from=GO_BUILD /server/templates/ ./templates
-COPY --from=GO_BUILD /server/static ./static
-EXPOSE 443
+EXPOSE 80
 CMD ./server

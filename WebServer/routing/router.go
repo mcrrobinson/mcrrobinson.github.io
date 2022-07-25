@@ -1,7 +1,6 @@
 package routing
 
 import (
-	"crypto/tls"
 	"net/http"
 	"os"
 
@@ -15,23 +14,16 @@ type Router struct {
 	projectTitle string
 	webPort      int
 	webIP        string
-	certFile     string
-	keyFile      string
-	cert         tls.Certificate
 }
 
 // NewRouterStructure Defines an instance of the worker structure.
-func NewRouterStructure(title string, webPort int, webIP string, certFile string, keyFile string) *Router {
-	cert, _ := tls.LoadX509KeyPair("fullchain.pem", "privkey.pem")
+func NewRouterStructure(title string, webPort int, webIP string) *Router {
 	route := &Router{
 		logger:       log.New("module", "Router"),
 		apiServer:    nil,
 		projectTitle: title,
 		webPort:      webPort,
 		webIP:        webIP,
-		certFile:     certFile,
-		keyFile:      keyFile,
-		cert:         cert,
 	}
 	route.logger.SetHandler(log.StreamHandler(os.Stderr, log.TerminalFormat()))
 	return route
