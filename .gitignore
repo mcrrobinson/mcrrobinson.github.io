@@ -1,3 +1,5 @@
 APIServer/certs/
 WebServer/certs/
 run.bat
+
+WebServer/static
