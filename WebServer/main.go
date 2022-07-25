@@ -11,8 +11,8 @@ func main() {
 	projectTitle := flag.String("title", "TemplateApplication", "This will contain the title of the client.")
 	webPort := flag.Int("web-port", 443, "The Port is required to start the server.")
 	webIP := flag.String("web-ip", "localhost", "The IP is required to start the server.")
-	certificate := flag.String("cert", "/certs/fullchain.pem", "Location of the certificate.")
-	key := flag.String("key", "/certs/privkey.pem", "Location of th key.")
+	certificate := flag.String("cert", "fullchain.pem", "Location of the certificate.")
+	key := flag.String("key", "privkey.pem", "Location of th key.")
 
 	// Make a bool to tell the thread when to stop.
 	stop := make(chan bool)

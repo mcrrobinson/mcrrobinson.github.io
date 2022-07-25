@@ -22,7 +22,7 @@ type Router struct {
 
 // NewRouterStructure Defines an instance of the worker structure.
 func NewRouterStructure(title string, webPort int, webIP string, certFile string, keyFile string) *Router {
-	cert, _ := tls.LoadX509KeyPair("/certs/fullchain.pem", "/certs/privkey.pem")
+	cert, _ := tls.LoadX509KeyPair("fullchain.pem", "privkey.pem")
 	route := &Router{
 		logger:       log.New("module", "Router"),
 		apiServer:    nil,
