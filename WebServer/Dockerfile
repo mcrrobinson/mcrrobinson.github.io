@@ -10,6 +10,5 @@ FROM alpine:3.10
 COPY --from=GO_BUILD /go/bin/server/ ./
 COPY --from=GO_BUILD /server/templates/ ./templates
 COPY --from=GO_BUILD /server/static ./static
-COPY --from=GO_BUILD /server/certs ./certs
 EXPOSE 443
 CMD ./server
