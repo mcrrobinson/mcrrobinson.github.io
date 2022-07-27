@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Projects</title>
+    <title>The Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/main_page_main.css" />
 </head>
 
@@ -12,7 +14,7 @@
         <div class="loading-screen"></div>
     </div>
 
-    <main data-barba="container" data-barba-namespace="about-section">
+    <main data-barba="container" data-barba-namespace="project-section">
         <div class="header">
             <h1 class="animate-this">
                 Projects
@@ -22,112 +24,86 @@
         </div>
     </main>
 </body>
-<script src="https://unpkg.com/@barba/core"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
 <script src="/static/js/jquery.min.js"></script>
+<script src='/static/js/jquery.velocity.min.js'></script>
+<script src='/static/js/velocity.ui.min.js'></script>
+<script src="/static/js/home_page_transitions.js"></script>
+<script src="https://unpkg.com/@barba/core"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
 <script src="/static/js/home_page_page_transition.js"></script>
 <script>
-    function divElement(element, content, className, appendElement) {
-        var descDiv = document.createElement(element);
-        descDiv.innerHTML += content;
-        descDiv.className = className;
-        appendElement.appendChild(descDiv);
-    }
+    // send post request
+    fetch('https://api.github.com/users/UP2022742/repos', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            var column_row = document.getElementById('column-row');
 
-    function getRandomBetween(min, max) {
-        return Math.round(Math.random() * (max - min) + min);
-    }
+            var column1 = document.createElement('div');
+            column1.classList = 'deferred-animate-this column';
+            var column2 = document.createElement('div');
+            column2.classList = 'deferred-animate-this column';
+            var column3 = document.createElement('div');
+            column3.classList = 'deferred-animate-this column';
+            var column4 = document.createElement('div');
+            column4.classList = 'deferred-animate-this column';
+            for (i = 0; i < res.length; i++) {
+                switch (i % 4) {
 
-    function generateBlock(column, title, description, language) {
-        // Create grid box with random size.
-        var baseDiv = document.createElement("div");
-        baseDiv.setAttribute('onclick', "location.href='https://github.com/UP2022742/" + title + "'");
-        baseDiv.classList.add("grid");
-        baseDiv.style.height = getRandomBetween(220, 280) + 'px';
-
-        divElement("div", title, "gridTitle", baseDiv);
-        divElement("div", description, "gridDesc", baseDiv);
-        divElement("div", language, "gridLang", baseDiv);
-
-        // Write all contents to the grid.
-        column.appendChild(baseDiv);
-    }
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // send post request
-        fetch('https://api.github.com/users/UP2022742/repos', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(res => res.json())
-            .then(res => {
-                var column_row = document.getElementById('column-row');
-
-                var column1 = document.createElement('div');
-                column1.classList = 'deferred-animate-this column';
-                var column2 = document.createElement('div');
-                column2.classList = 'deferred-animate-this column';
-                var column3 = document.createElement('div');
-                column3.classList = 'deferred-animate-this column';
-                var column4 = document.createElement('div');
-                column4.classList = 'deferred-animate-this column';
-                for (i = 0; i < res.length; i++) {
-                    switch (i % 4) {
-
-                        case 0:
-                            generateBlock(
-                                column1,
-                                res[i].name.replaceAll('-', ' ').replaceAll('_', ' '),
-                                res[i].description,
-                                res[i].language
-                            );
-                            break;
-                        case 1:
-                            generateBlock(
-                                column2,
-                                res[i].name.replaceAll('-', ' ').replaceAll('_', ' '),
-                                res[i].description,
-                                res[i].language
-                            );
-                            break;
-                        case 2:
-                            generateBlock(
-                                column3,
-                                res[i].name.replaceAll('-', ' ').replaceAll('_', ' '),
-                                res[i].description,
-                                res[i].language
-                            );
-                            break;
-                        default:
-                            generateBlock(
-                                column4,
-                                res[i].name.replaceAll('-', ' ').replaceAll('_', ' '),
-                                res[i].description,
-                                res[i].language
-                            );
-                    }
-
+                    case 0:
+                        generateBlock(
+                            column1,
+                            res[i].name.replaceAll('-', ' ').replaceAll('_', ' '),
+                            res[i].description,
+                            res[i].language
+                        );
+                        break;
+                    case 1:
+                        generateBlock(
+                            column2,
+                            res[i].name.replaceAll('-', ' ').replaceAll('_', ' '),
+                            res[i].description,
+                            res[i].language
+                        );
+                        break;
+                    case 2:
+                        generateBlock(
+                            column3,
+                            res[i].name.replaceAll('-', ' ').replaceAll('_', ' '),
+                            res[i].description,
+                            res[i].language
+                        );
+                        break;
+                    default:
+                        generateBlock(
+                            column4,
+                            res[i].name.replaceAll('-', ' ').replaceAll('_', ' '),
+                            res[i].description,
+                            res[i].language
+                        );
                 }
 
-                column_row.appendChild(column1);
-                column_row.appendChild(column2);
-                column_row.appendChild(column3);
-                column_row.appendChild(column4);
+            }
 
-                var tl = gsap.timeline();
-                tl.from(".deferred-animate-this", {
-                    duration: 1,
-                    y: 30,
-                    opacity: 0,
-                    stagger: 0.2,
-                    delay: 0.2
-                });
-            })
-            .catch(err => console.error(err));
-    });
+            column_row.appendChild(column1);
+            column_row.appendChild(column2);
+            column_row.appendChild(column3);
+            column_row.appendChild(column4);
+
+            var tl = gsap.timeline();
+            tl.from(".deferred-animate-this", {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                stagger: 0.2,
+                delay: 0.2
+            });
+        })
+        .catch(err => console.error(err));
 </script>
 
 </html>
