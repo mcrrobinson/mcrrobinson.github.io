@@ -1,98 +1,149 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>The Portfolio</title>
-        <link rel="stylesheet" href="main.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"> 
-    </head>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
 
-    <body data-barba="wrapper">
-        <div class="load-container">
-            <div class="loading-screen"></div>
+<body data-barba="wrapper">
+    <div class="load-container">
+        <div class="loading-screen"></div>
+    </div>
+
+    <main data-barba="container" data-barba-namespace="about-section">
+        <!-- Header Section -->
+        <div class="header" style="padding-bottom: 7.5vh;">
+            <h1>About <span class="text-accent">Me</span></h1>
         </div>
 
-        <main data-barba="container" data-barba-namespace="about-section">
-            <div class="header">
-                <h1 style="display: inline;" class="about-message">About</h1>
-                <h1 style="display: inline;" class="about-me">Me</h1>
-                <!-- <div class="animate-this button">
-                    <a href="index.html">go back to home</a>
-                </div> -->
+    
+        <!-- Profile Section -->
+        <div class="profile-container">
+            <div class="player-thumb"></div>
+            <div class="bio-text">
+                <p>Software Engineer with experience in cybersecurity and defense sectors. Passionate about creating efficient, secure, and innovative solutions using a variety of programming languages and technologies.</p>
             </div>
-            <div class="mid-content">
-                <div class="player-thumb"></div>
-            </div>
-            <div class="main-content">
-                <div class="animate-this about-top">
-                    <div class="work">Matthew Robinson</div>
-                    <hr style="margin-bottom: 50px">
-                    <div class="work-title">Development Security Operations (DevSecOps) engineer at UK Ministry of Defence</div>
-                    <br>
-                    <div class="content-paragraph">An enquiring mind and I like to know how and why things work. I chose at college to focus my studies in software engineering. 
+        </div>
 
-                        Passionate software engineer with a tenacity to improve the efficiency and effectiveness of a system. Confident communication, and innovative creator to develop software that is customized to meet a company’s organizational needs, highlight their core competencies, and further their success. 
-                        
-                        I have trained in both software security and development in college and a software house while working for the government. I enjoy the rapid response and development of the agile methodology.
+        <!-- Language Knowledge Section - Kept the same as requested -->
+        <section class="language-section animate-this">
+            <div class="section-header">
+                <h2 class="section-title">Languages</h2>
+            </div>
+            
+            <div class="fixed-center">
+                <div id="cup-one" class="cup-one">
+                    <h1 class="language-name">Python</h1>
+                    <h1 class="language-percent">90%</h1>
+                </div>
+                <div id="cup-two" class="cup-two">
+                    <h1 class="language-name">Javascript</h1>
+                    <h1 class="language-percent">90%</h1>
+                </div>
+                <div id="cup-tree" class="cup-tree">
+                    <h1 class="language-name">Go</h1>
+                    <h1 class="language-percent">60%</h1>
+                </div>
+                <div id="cup-four" class="cup-four">
+                    <h1 class="language-name">C++</h1>
+                    <h1 class="language-percent">60%</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education Section -->
+        <section class="career-container">
+            <div class="row" style="justify-content: space-evenly;">
+                <!-- Work Experience Section -->
+                <div class="column experience-section animate-this">
+                    <h2 class="section-title">Work Experience</h2>
+                    
+                    <div class="experience-card">
+                        <h3 class="company">CovertSwarm</h3>
+                        <p class="job-title">Software Engineer</p>
+                        <span class="job-type">Permanent</span>
+                        <p class="job-description">Developing secure applications and penetration testing tools.</p>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <h3 class="company">CGI</h3>
+                        <p class="job-title">Software Engineer</p>
+                        <span class="job-type">Contract</span>
+                        <p class="job-description">Enterprise software development and systems integration.</p>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <h3 class="company">XCyber</h3>
+                        <p class="job-title">Software Engineer</p>
+                        <span class="job-type">Permanent</span>
+                        <p class="job-description">Cybersecurity solution development and implementation.</p>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <h3 class="company">Ministry Of Defence</h3>
+                        <p class="job-title">Software Engineer</p>
+                        <span class="job-type">Permanent</span>
+                        <p class="job-description">Security-focused software development for defense applications.</p>
+                    </div>
+                    
+                    <div class="experience-card">
+                        <h3 class="company">CORE Lighting Limited</h3>
+                        <p class="job-title">Software Engineer</p>
+                        <span class="job-type">Permanent</span>
+                        <p class="job-description">Lighting control software and embedded systems development.</p>
                     </div>
                 </div>
-                <div class="animate-this">
-                    <div class="work">Language Knowledge</div>
-                    <hr style="margin-bottom: 50px">
-                    <div class="fixedCenter">
-                        <div id="cupOne" class="cupOne">
-                            <h1 class="languageName">Python</h1>
-                            <h1 class="languagePercent">90%</h1>
-                        </div>
-                        <div id="cupTwo" class="cupTwo">
-                            <h1 class="languageName">C++</h1>
-                            <h1 class="languagePercent">85%</h1>
-                        </div>
-                        <div id="cupThree" class="cupThree">
-                            <h1 class="languageName">Java</h1>
-                            <h1 class="languagePercent">60%</h1>
-                        </div>
-                        <div id="cupFour" class="cupFour">
-                            <h1 class="languageName">Rust</h1>
-                            <h1 class="languagePercent">10%</h1>
-                        </div>
+                
+                <!-- Education Section -->
+                <div class="column education-section animate-this">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-card">
+                        <h3 class="institution">University of Portsmouth</h3>
+                        <p class="degree">BSc Computer Science</p>
+                        <span class="grade">1st with Honours</span>
+                        <p class="edu-description">Focus on advanced algorithms, cybersecurity, and software engineering principles.</p>
                     </div>
-                </div>
-                <br>
-                <div class="basic-flex">
-                    <div style="margin-right: 20px;" class="animate-this float-left">
-                        <div class="work">Work</div>
-                        <hr style="margin-bottom: 50px">
-                        <div class="work-role">Software Engineer</div>
-                        <div class="work-title">Ministry Of Defence | Full Time</div>
-                        <div class="content-paragraph">
-                            I am a Development Security Operations member for the Ministry of Defence. This requires a broad range of knowledge and an "out of the box" style of thinking. The majority of our software development cycles are based around the Agile Scrum methodology with consideration of security in order to produce robust software.
-                        </div>
-                        <div class="work-role">Software Engineer</div>
-                        <div class="work-title">CORE Lighting Limited | Full Time</div>
-                        <div class="content-paragraph">
-                            During my time at Core Lighting LTD I was repsonsible for a number of roles including but not limited to; Customer Assistant, Personal Assistant and Designer. I was required to talk to customers on the phone and help them with queries as well data manipulation on excel for presentation use. On top of that, I had a task to code a lighting sequence and design a radio frequency based remote to activate it to be used for a plane landing in Antarctica. In regards to the software I was required to learn, it was called Easy Stand Alone 2 and it connected all the lights together so that the lighting sequence could communicate in uniform.
-                        </div>
+                    
+                    <div class="education-card">
+                        <h3 class="institution">Berkeley</h3>
+                        <p class="degree">Computer Science</p>
+                        <span class="grade">72%</span>
+                        <p class="degree">Cambridge Technical I.T Diploma</p>
+                        <span class="grade">Distinction</span>
                     </div>
-                    <div style="margin-right: 20px;" class="animate-this">
-                        <div class="education">Education</div>
-                        <hr style="margin-bottom: 50px">
-                        <div class="education-title">Berkeley</div>
-                        <div class="content-paragraph">Computer Science (72%), Cambridge Technical I.T Diploma (Distinction)</div>
-                        <div class="education-title">Deer Park</div>
-                        <div class="content-paragraph">
-                            Computer Science (Grade A) Grades A-C including English, Mathematics & Statistics. Physics (Grade B) Biology (Grade B) Chemistry (Grade B) History (Grade C)
-                        </div>
+                    
+                    <div class="education-card">
+                        <h3 class="institution">Deer Park</h3>
+                        <p class="degree">GCSEs</p>
+                        <ul class="qualification-list">
+                            <li>Computer Science (Grade A)</li>
+                            <li>Physics, Biology, Chemistry (Grade B)</li>
+                            <li>Mathematics & Statistics (Grade A-C)</li>
+                            <li>English (Grade A-C)</li>
+                            <li>History (Grade C)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </main>
-    </body>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-links">
+                <a class='funky-link' href="#" class="contact-link">LinkedIn</a>
+                <a class='funky-link' href="#" class="contact-link">GitHub</a>
+                <a class='funky-link' href="mailto:contact@example.com" class="contact-link">Email</a>
+            </div>
+        </section>
+    </main>
+
     <script src="js/jquery.min.js"></script>
     <script src="https://unpkg.com/@barba/core"></script>
-    <script
-        type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
     <script src="js/page_transition.js"></script>
+</body>
 </html>

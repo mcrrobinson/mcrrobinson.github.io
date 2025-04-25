@@ -27,13 +27,13 @@ function getRandomBetween(min, max) {
     // Create and append title
     const titleDiv = document.createElement("div");
     titleDiv.textContent = name;
-    titleDiv.className = "gridTitle";
+    titleDiv.className = "grid-title";
     newDiv.appendChild(titleDiv);
   
     // Create and append description
     const descDiv = document.createElement("div");
     descDiv.textContent = description || "No description available";
-    descDiv.className = "gridDesc";
+    descDiv.className = "grid-description";
     newDiv.appendChild(descDiv);
 
 
@@ -41,7 +41,7 @@ function getRandomBetween(min, max) {
 
     if (language) {
       var languageContainer = document.createElement("div");
-      languageContainer.className = "gridLang";
+      languageContainer.className = "grid-lang";
   
       var langDiv = document.createElement("div");
       langDiv.innerHTML += language;
@@ -49,7 +49,7 @@ function getRandomBetween(min, max) {
   
       var langIcon = document.createElement("img");
       langIcon.src = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/" + language.toLowerCase() + "/" + language.toLowerCase() + "-original.svg";
-      langIcon.className = "gridLangIcon";
+      langIcon.className = "grid-langIcon";
   
       // Check if the image loads successfully
       langIcon.onload = function() {
@@ -65,7 +65,7 @@ function getRandomBetween(min, max) {
       newDiv.appendChild(languageContainer);
     } else {
       var languageContainer = document.createElement("div");
-      languageContainer.className = "gridLang";
+      languageContainer.className = "grid-lang";
   
       var langDiv = document.createElement("div");
       langDiv.innerHTML += "No language specified";
