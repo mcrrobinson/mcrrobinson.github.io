@@ -515,6 +515,12 @@
   padding: 3rem 2rem;
 }
 
+.education-section,
+.experience-section {
+  padding: 10px;
+  width: 100%;
+}
+
 .experience-card, 
 .education-card {
   margin-bottom: 2rem;
